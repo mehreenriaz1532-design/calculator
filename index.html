@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pro Scientific Calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="calculator" id="calc">
+  <input type="text" id="display" readonly placeholder="0">
+
+  <div class="keyboard" id="keyboard">
+    <button onclick="press('sin(')">sin</button>
+    <button onclick="press('cos(')">cos</button>
+    <button onclick="press('tan(')">tan</button>
+    <button onclick="press('log(')">log</button>
+    <button onclick="press('sqrt(')">√</button>
+    <button onclick="press('pi')">π</button>
+    <button onclick="press('e')">e</button>
+    <button onclick="press('^')">x^y</button>
+    <button onclick="press('7')">7</button>
+    <button onclick="press('8')">8</button>
+    <button onclick="press('9')">9</button>
+    <button class="op" onclick="press('/')">÷</button>
+    <button onclick="press('4')">4</button>
+    <button onclick="press('5')">5</button>
+    <button onclick="press('6')">6</button>
+    <button class="op" onclick="press('*')">×</button>
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+    <button class="op" onclick="press('-')">−</button>
+    <button onclick="press('0')">0</button>
+    <button onclick="press('.')">.</button>
+    <button class="equal" onclick="calculate()">=</button>
+    <button class="op" onclick="press('+')">+</button>
+    <button class="clear" onclick="clearDisplay()">C</button>
+    <button class="clear" onclick="backspace()">⌫</button>
+    <button onclick="press(')">(</button>
+    <button onclick="press(')')">)</button>
+  </div>
+
+  <div class="theme-bar">
+    <input type="file" id="themeUpload" accept="image/*">
+    <button id="resetTheme">Default</button>
+  </div>
+</div>
+
+<audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+<script src="script.js"></script>
+</body>
+</html>
