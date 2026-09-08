@@ -17,20 +17,27 @@ function calculate() {
   playSound();
   try {
     let exp = display.value
-   .replace(/sin\(/g, 'Math.sin(Math.PI/180*')
-   .replace(/cos\(/g, 'Math.cos(Math.PI/180*')
-   .replace(/tan\(/g, 'Math.tan(Math.PI/180*')
-   .replace(/log\(/g, 'Math.log10(')
-   .replace(/sqrt\(/g, 'Math.sqrt(')
-   .replace(/pi/g, 'Math.PI')
-   .replace(/e/g, 'Math.E')
-   .replace(/\^/g, '**');
+  .replace(/sin\(/g, 'Math.sin(Math.PI/180*')
+  .replace(/cos\(/g, 'Math.cos(Math.PI/180*')
+  .replace(/tan\(/g, 'Math.tan(Math.PI/180*')
+  .replace(/log\(/g, 'Math.log10(')
+  .replace(/sqrt\(/g, 'Math.sqrt(')
+  .replace(/pi/g, 'Math.PI')
+  .replace(/e/g, 'Math.E')
+  .replace(/\^/g, '**');
     let open = (exp.match(/\(/g)||[]).length;
     let close = (exp.match(/\)/g)||[]).length;
     exp += ')'.repeat(open-close);
-    display.value = eval(exp);
-
-    // RESULT SLIDE-IN ANIMATION
+    let result = eval(exp);
+    
+    // NUMBER COUNTING ANIMATION
+    gsap.fromTo("#display", 
+      {value: 0},
+      {value: result, duration: 0.5, ease: "power1.out", snap: {value: 0.01},
+       onUpdate: function(){ display.value = this.targets()[0].value.toFixed(2) }
+      }
+    )
+    // RESULT SLIDE-IN
     gsap.from("#display", {y: 15, opacity: 0, duration: 0.4, ease: "back.out(1.7)"})
 
   } catch {
@@ -56,6 +63,16 @@ function playSound() {
   sound.play();
 }
 
+// BUTTON HOVER GLOW EFFECT
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('mouseenter', () => {
+    gsap.to(btn, {boxShadow: "0 0 20px #00f2ff", backgroundColor: "rgba(120,120,120,0.7)", duration: 0.3})
+  })
+  btn.addEventListener('mouseleave', () => {
+    gsap.to(btn, {boxShadow: "0 0 0px #00f2ff", backgroundColor: "rgba(80,80,80,0.5)", duration: 0.3})
+  })
+})
+
 document.getElementById('themeUpload').addEventListener('change', function(e){
   let file = e.target.files[0];
   if(file){
@@ -70,5 +87,5 @@ document.getElementById('themeUpload').addEventListener('change', function(e){
 
 document.getElementById('resetTheme').onclick = function(){
   // RESET THEME WITH ANIMATION
-  gsap.to("#keyboard", {backgroundImage: "url('https://i.ibb.co/N2yR2ZQ/pro-keyboard.jpg')", duration: 0.6, ease: "power2.inOut"})
+  gsap.to("#keyboard", {backgroundImage: "url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1170')", duration: 0.6, ease: "power2.inOut"})
 }
