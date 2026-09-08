@@ -46,14 +46,15 @@ body {
   padding: 15px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(8, 1fr); /* FIX: 8 rows kar di */
+  grid-auto-rows: 55px; /* FIX 1: 8 rows hata ke ye kar diya */
   gap: 10px;
   margin-bottom: 15px;
   box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
 }
 
 button {
-  height: 55px;
+  height: 100%; /* FIX 2: 55px hata ke 100% kar diya */
+  width: 100%;
   font-size: 18px;
   font-weight: 600;
   border: none;
@@ -81,7 +82,7 @@ button.equal {
   background: rgba(0,255,255,0.4);
   color: #00f2ff;
   grid-row: span 2;
-  height: auto; /* FIX: height auto kar di taake 2 rows le */
+  height: 100%; /* FIX 3: auto hata ke 100% kar diya */
 }
 
 button.clear {
@@ -115,14 +116,15 @@ button.clear {
 @media (max-width: 480px) {
   .calculator {padding: 15px; border-radius: 20px;}
   #display {height: 45px; font-size: 28px;}
-  .keyboard {gap: 8px; padding: 12px;}
-  button {height: 50px; font-size: 16px; border-radius: 12px;}
-  button.equal {height: auto;}
+  .keyboard {gap: 8px; padding: 12px; grid-auto-rows: 50px;}
+  button {font-size: 16px; border-radius: 12px;}
+  button.equal {height: 100%;}
   .theme-bar input,.theme-bar button {font-size: 12px; padding: 8px;}
 }
 
 @media (max-width: 360px) {
-  button {height: 45px; font-size: 14px;}
-  button.equal {height: auto;}
+  .keyboard {grid-auto-rows: 45px;}
+  button {font-size: 14px;}
+  button.equal {height: 100%;}
   #display {font-size: 24px;}
 }
