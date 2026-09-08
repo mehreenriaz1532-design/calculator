@@ -9,12 +9,6 @@
 <body>
 
 <div class="calculator" id="calc">
-  
-  <!-- FIX 1: display-box add kar diya -->
-  <div class="display-box">
-    <input type="text" id="display" readonly placeholder="0">
-  </div>
-
   <div class="keyboard" id="keyboard">
     <button class="btn" onclick="press('sin(')">sin</button>
     <button class="btn" onclick="press('cos(')">cos</button>
@@ -42,10 +36,15 @@
     <button class="btn op" onclick="press('+')">+</button>
     <button class="btn clear" onclick="clearDisplay()">C</button>
     <button class="btn clear" onclick="backspace()">⌫</button>
-    <button class="btn" onclick="press('(')">(</button>
+    <button class="btn" onclick="press(')">(</button>
     <button class="btn" onclick="press(')')">)</button>
   </div>
+  <!-- FIX 1: display-box add kar diya -->
+  <div class="display-box">
+    <input type="text" id="display" readonly placeholder="0">
+  </div>
 
+ 
   <div class="theme-bar">
     <input type="file" id="themeUpload" accept="image/*">
     <button id="resetTheme">Default</button>
