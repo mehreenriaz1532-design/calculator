@@ -12,34 +12,34 @@
   <input type="text" id="display" readonly placeholder="0">
 
   <div class="keyboard" id="keyboard">
-    <button onclick="press('sin(')">sin</button>
-    <button onclick="press('cos(')">cos</button>
-    <button onclick="press('tan(')">tan</button>
-    <button onclick="press('log(')">log</button>
-    <button onclick="press('sqrt(')">√</button>
-    <button onclick="press('pi')">π</button>
-    <button onclick="press('e')">e</button>
-    <button onclick="press('^')">x^y</button>
-    <button onclick="press('7')">7</button>
-    <button onclick="press('8')">8</button>
-    <button onclick="press('9')">9</button>
-    <button class="op" onclick="press('/')">÷</button>
-    <button onclick="press('4')">4</button>
-    <button onclick="press('5')">5</button>
-    <button onclick="press('6')">6</button>
-    <button class="op" onclick="press('*')">×</button>
-    <button onclick="press('1')">1</button>
-    <button onclick="press('2')">2</button>
-    <button onclick="press('3')">3</button>
-    <button class="op" onclick="press('-')">−</button>
-    <button onclick="press('0')">0</button>
-    <button onclick="press('.')">.</button>
-    <button class="equal" onclick="calculate()">=</button>
-    <button class="op" onclick="press('+')">+</button>
-    <button class="clear" onclick="clearDisplay()">C</button>
-    <button class="clear" onclick="backspace()">⌫</button>
-    <button onclick="press(')">(</button>
-    <button onclick="press(')')">)</button>
+    <button class="btn" onclick="press('sin(')">sin</button>
+    <button class="btn" onclick="press('cos(')">cos</button>
+    <button class="btn" onclick="press('tan(')">tan</button>
+    <button class="btn" onclick="press('log(')">log</button>
+    <button class="btn" onclick="press('sqrt(')">√</button>
+    <button class="btn" onclick="press('pi')">π</button>
+    <button class="btn" onclick="press('e')">e</button>
+    <button class="btn" onclick="press('^')">x^y</button>
+    <button class="btn" onclick="press('7')">7</button>
+    <button class="btn" onclick="press('8')">8</button>
+    <button class="btn" onclick="press('9')">9</button>
+    <button class="btn op" onclick="press('/')">÷</button>
+    <button class="btn" onclick="press('4')">4</button>
+    <button class="btn" onclick="press('5')">5</button>
+    <button class="btn" onclick="press('6')">6</button>
+    <button class="btn op" onclick="press('*')">×</button>
+    <button class="btn" onclick="press('1')">1</button>
+    <button class="btn" onclick="press('2')">2</button>
+    <button class="btn" onclick="press('3')">3</button>
+    <button class="btn op" onclick="press('-')">−</button>
+    <button class="btn" onclick="press('0')">0</button>
+    <button class="btn" onclick="press('.')">.</button>
+    <button class="btn equal" onclick="calculate()">=</button>
+    <button class="btn op" onclick="press('+')">+</button>
+    <button class="btn clear" onclick="clearDisplay()">C</button>
+    <button class="btn clear" onclick="backspace()">⌫</button>
+    <button class="btn" onclick="press('(')">(</button>
+    <button class="btn" onclick="press(')')">)</button>
   </div>
 
   <div class="theme-bar">
@@ -49,6 +49,9 @@
 </div>
 
 <audio id="clickSound" src="https://www.soundjay.com/buttons/sounds/button-16.mp3"></audio>
+
+<!-- GSAP CDN ADDED -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
