@@ -6,27 +6,29 @@ const keyboard = document.getElementById('keyboard');
 
 function playSound() {
   clickSound.currentTime = 0;
-  clickSound.play();
+  clickSound.play().catch(()=>{}); // mobile me error na aaye isliye
 }
 
-function press(val) {
+// FIX 1: event bhi pass kiya
+function press(val, e) {
   playSound();
   display.value += val;
-  gsap.to(event.target, {scale: 0.9, duration: 0.1, yoyo: true, repeat: 1})
+  gsap.to(e.target, {scale: 0.9, duration: 0.1, yoyo: true, repeat: 1})
 }
 
 function calculate() {
   playSound();
   try {
     let expr = display.value
-     .replace(/sin\(/g, 'Math.sin(')
-     .replace(/cos\(/g, 'Math.cos(')
-     .replace(/tan\(/g, 'Math.tan(')
-     .replace(/log\(/g, 'Math.log10(')
-     .replace(/sqrt\(/g, 'Math.sqrt(')
-     .replace(/pi/g, 'Math.PI')
-     .replace(/e/g, 'Math.E')
-     .replace(/\^/g, '**');
+     // FIX 2: Degree to Radian convert kiya
+    .replace(/sin\(/g, 'Math.sin(Math.PI/180*')
+    .replace(/cos\(/g, 'Math.cos(Math.PI/180*')
+    .replace(/tan\(/g, 'Math.tan(Math.PI/180*')
+    .replace(/log\(/g, 'Math.log10(')
+    .replace(/sqrt\(/g, 'Math.sqrt(')
+    .replace(/pi/g, 'Math.PI')
+    .replace(/e/g, 'Math.E')
+    .replace(/\^/g, '**');
     let result = eval(expr);
     animateValue(0, result, 500);
   } catch {
